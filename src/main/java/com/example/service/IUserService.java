@@ -20,4 +20,11 @@ public interface IUserService {
      * @return
      */
     User getEntityById(@Param("id") Long id);
+
+    /**
+     * 根据用户名称查找实体
+     * @param name
+     * @return
+     */
+    User getEntityByName(@Param("name") String name);
 }
