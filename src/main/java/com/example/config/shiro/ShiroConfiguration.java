@@ -37,7 +37,7 @@ public class ShiroConfiguration {
         //https://www.jianshu.com/p/0f2049a3983b
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         //必须设置SecurityManager
-        shiroFilterFactoryBean.setSecurityManager(securityManager);
+        shiroFilterFactoryBean.setSecurityManager((org.apache.shiro.mgt.SecurityManager) securityManager);
 
         //验证码过滤器
         Map<String, Filter> filterMap = shiroFilterFactoryBean.getFilters();
@@ -139,7 +139,7 @@ public class ShiroConfiguration {
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+        authorizationAttributeSourceAdvisor.setSecurityManager((org.apache.shiro.mgt.SecurityManager) securityManager);
         return authorizationAttributeSourceAdvisor;
     }
 

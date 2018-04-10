@@ -2,14 +2,14 @@ package com.example.config.shiro;
 
 import com.google.code.kaptcha.Constants;
 import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+
+import static org.apache.commons.lang3.CharSequenceUtils.toCharArray;
 
 
 /**
@@ -65,7 +65,7 @@ public class KaptchaFilter extends FormAuthenticationFilter {
         String captcha = getCaptcha(request);
         boolean rememberMe = isRememberMe(request);
         String host = getHost(request);
-        return new CaptchaUsernamePasswordToken(username,password,toCharArray(),rememberMe,host,captcha);
+        return new CaptchaUsernamePasswordToken(username, password.toCharArray(), rememberMe, host, captcha);
     }
 
 
@@ -83,11 +83,12 @@ public class KaptchaFilter extends FormAuthenticationFilter {
 
     /**
      * 保存异常对象到request
+     *
      * @param request
      * @param ae
      */
     @Override
     protected void setFailureAttribute(ServletRequest request, AuthenticationException ae) {
-        request.setAttribute(getFailureKeyAttribute(),ae);
+        request.setAttribute(getFailureKeyAttribute(), ae);
     }
 }
