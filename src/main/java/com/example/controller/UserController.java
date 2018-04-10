@@ -24,5 +24,10 @@ public class UserController {
         return userService.getEntityById(id);
     }
 
+    @GetMapping("getEntityByName")
+    public Object getEntityByName(@PathVariable String name) {
+        return userService.getEntityByName(name);
+    }
+
 
 }

@@ -8,8 +8,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
 #####################################配置mapper.xml路径###################################
-mybatis:
-  mapper-locations: mapper/*.xml
+mybatis-plus:
+  config-location: mapper/*.xml
+  type-aliases-package: com.example.entity
+#mybatis:
+#  mapper-locations: mapper/*.xml
+
 
 
 ####################################配置日志##############################################
@@ -21,6 +25,8 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file: E:/log/mylog.log
+
+
 
 
 

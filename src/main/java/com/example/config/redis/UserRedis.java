@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.config.redis;
 
 
 import com.example.entity.User;

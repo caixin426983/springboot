@@ -9,7 +9,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import static org.apache.commons.lang3.CharSequenceUtils.toCharArray;
 
 
 /**

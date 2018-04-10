@@ -1,5 +1,6 @@
 package com.example.service.impl;
 
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.example.mapper.IUserMapper;
 import com.example.entity.User;
 import com.example.service.IUserService;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends ServiceImpl<IUserMapper, User> implements IUserService {
 
     @Autowired
     private IUserMapper userMapper;
@@ -24,6 +25,12 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User getEntityById(Long id) {
         return userMapper.getEntityById(id);
+    }
+
+    @Override
+    public User getEntityByName(String name) {
+        User user = new User();
+        return  userMapper.selectOne(user);
     }
 
 }
